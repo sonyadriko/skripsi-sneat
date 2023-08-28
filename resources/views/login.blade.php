@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-
-<!-- =========================================================
-* Sneat - Bootstrap 5 HTML Admin Template - Pro | v1.0.0
-==============================================================
-
-* Product Page: https://themeselection.com/products/sneat-bootstrap-html-admin-template/
-* Created by: ThemeSelection
-* License: You must have a valid license purchased in order to legally use the theme for your project.
-* Copyright ThemeSelection (https://themeselection.com)
-
-=========================================================
- -->
-<!-- beautify ignore:start -->
 <html
   lang="en"
   class="light-style customizer-hide"
@@ -32,7 +19,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    {{-- <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" /> --}}
+   <link rel="icon" type="image/x-icon" href="../assets/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -74,7 +61,7 @@
           <div class="card">
             <div class="card-body">
               <!-- Logo -->
-              {{-- <div class="app-brand justify-content-center">
+               {{-- <div class="app-brand justify-content-center">
                 <a href="index.html" class="app-brand-link gap-2">
                   <span class="app-brand-logo demo">
                     <svg
@@ -131,33 +118,49 @@
                       </g>
                     </svg>
                   </span>
-                  {{-- <span class="app-brand-text demo text-body fw-bolder">Sneat</span> 
+                  <span class="app-brand-text demo text-body fw-bolder">Sneat</span> 
                 </a>
               </div> --}}
               <!-- /Logo -->
-              {{-- <h4 class="mb-2">Welcome to Sneat! 👋</h4> --}}
-              <p class="mb-4">Izinkan sistem mengenali anda</p>
+               {{-- <h4 class="mb-2">Welcome to Sneat! 👋</h4>
+              <p class="mb-4">Izinkan sistem mengenali anda</p> --}}
 
-              {{-- <form id="formAuthentication" class="mb-3" action="index.html" method="POST"> --}}
-              <form method="POST" action="{{ url('/login') }}">
+             {{-- <form id="formAuthentication" class="mb-3" action="index.html" method="POST">  --}}
+              <form method="POST" action="{{ route('login') }}">
                   @csrf
-                <div class="mb-3">
-                  <label for="email" class="form-label">NPM / Username</label>
+                {{-- <div class="mb-3">
+                  <label for="npm" class="form-label">NPM/NIP</label>
                   <input
                     type="text"
                     class="form-control"
-                    id="email"
-                    name="email-username"
-                    placeholder="Enter your email or username"
+                    id="npm"
+                    @error('npm') is-invalid @enderror"
+                    name="npm"
+                    placeholder="Enter your npm"
                     autofocus
                   />
-                </div>
-                <div class="mb-3 form-password-toggle">
+                </div> --}}
+
+                <div class="form-group row">
+                  <label for="npm" class="col-md-4 col-form-label text-md-right">{{ __('NPM') }}</label>
+
+                  <div class="col-md-6">
+                      <input id="npm" type="text" class="form-control @error('npm') is-invalid @enderror" name="npm" value="{{ old('npm') }}" required autocomplete="npm" autofocus>
+
+                      @error('npm')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+              </div>
+
+                {{-- <div class="mb-3 form-password-toggle">
                   <div class="d-flex justify-content-between">
                     <label class="form-label" for="password">Password</label>
-                    {{-- <a href="auth-forgot-password-basic.html">
+                    <a href="auth-forgot-password-basic.html">
                       <small>Forgot Password?</small>
-                    </a> --}}
+                    </a> 
                   </div>
                   <div class="input-group input-group-merge">
                     <input
@@ -170,24 +173,38 @@
                     />
                     <span class="input-group-text cursor-pointer"><i class="bx bx-hide"></i></span>
                   </div>
-                </div>
+                </div> --}}
+                <div class="form-group row">
+                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+
+                  <div class="col-md-6">
+                      <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+
+                      @error('password')
+                          <span class="invalid-feedback" role="alert">
+                              <strong>{{ $message }}</strong>
+                          </span>
+                      @enderror
+                  </div>
+              </div>
+{{--                 remember me
                 <div class="mb-3">
                   <div class="form-check">
                     <input class="form-check-input" type="checkbox" id="remember-me" />
                     <label class="form-check-label" for="remember-me"> Remember Me </label>
                   </div>
-                </div>
+                </div> --}}
                 <div class="mb-3">
                   <button class="btn btn-primary d-grid w-100" type="submit">Sign in</button>
                 </div>
               </form>
 
-              {{-- <p class="text-center">
+               {{-- <p class="text-center">
                 <span>New on our platform?</span>
                 <a href="auth-register-basic.html">
                   <span>Create an account</span>
                 </a>
-              </p> --}}
+              </p>  --}}
             </div>
           </div>
           <!-- /Register -->
