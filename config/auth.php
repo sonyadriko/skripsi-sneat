@@ -40,6 +40,27 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'api' => [
+            'driver' => 'token',
+            'provider' => 'users',
+            'hash' => false,
+        ],
+        'mahasiswa' => [
+            'driver' => 'session',
+            'provider' => 'mahasiswas',
+        ],
+        'dosen' => [
+            'driver' => 'session',
+            'provider' => 'dosens',
+        ],
+        'koordinator' => [
+            'driver' => 'session',
+            'provider' => 'koordinators',
+        ],
+        'kajur' => [
+            'driver' => 'session',
+            'provider' => 'kajurs',
+        ],
     ],
 
     /*
